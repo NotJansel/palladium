@@ -1,0 +1,8 @@
+name: Palladium
+version: '${project.version}'
+main: de.notjansel.palladium.Palladium
+api-version: 1.19
+prefix: palladium
+authors: [ NotJansel ]
+description: Rewrite of my old datasync Plugin
+website: https://github.com/NotJansel/palladium
