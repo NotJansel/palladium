@@ -10,7 +10,7 @@ A complete rewrite of my old [datasync](https://github.com/tornrpg/datasync) plu
 ### Features
 
  - Download Datapacks from their link and install them into the datapacks directory
- - Support for VanillaTweaks planned
+ - Support for VanillaTweaks planned, but has to be looked into
  - Maybe support for Downloading Plugins (not sure)
 
 #### Disclaimer
