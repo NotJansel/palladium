@@ -1,5 +1,7 @@
 package de.notjansel.palladium
 
+import de.notjansel.palladium.commands.PalladiumCommand
+import de.notjansel.palladium.enums.VersionTypes
 import org.bstats.bukkit.Metrics
 import org.bukkit.Bukkit
 import org.bukkit.plugin.java.JavaPlugin
@@ -7,15 +9,21 @@ import java.io.File
 import java.io.FileOutputStream
 import java.net.HttpURLConnection
 import java.net.URL
+import java.util.logging.Level
 import java.util.logging.Logger
 
 class Palladium : JavaPlugin() {
     override fun onEnable() {
         val pluginid: Int = 15555
         val metrics: Metrics = Metrics(this, pluginid);
-        val logger: Logger = Bukkit.getLogger();
-        logger.log(java.util.logging.Level.INFO, "Palladium enabled!");
+        if (!File(getDownloadDirectoryPath()).exists()) {
+            File(getDownloadDirectoryPath()).mkdirs()
+        }
+        val logger: Logger = this.logger;
+        logger.log(Level.INFO, "Palladium enabled!");
         Bukkit.getConsoleSender().sendRichMessage(getDownloadDirectoryPath())
+        DownloadFile("https://raw.githubusercontent.com/NotJansel/palladium/master/versions.json", "versions.json", getDownloadDirectoryPath())
+        getCommand("palladium")!!.setExecutor(PalladiumCommand())
     }
 
     override fun onDisable() {
@@ -42,6 +50,11 @@ class Palladium : JavaPlugin() {
     }
 
     fun getDownloadDirectoryPath(): String {
-        return this.dataFolder.absolutePath
+        return this.dataFolder.absolutePath + "/"
+    }
+
+    object things{
+        val version: String = "0.10.0-SNAPSHOT"
+        val versiontype: VersionTypes = VersionTypes.DEVELOPMENT
     }
 }
