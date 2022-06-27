@@ -10,3 +10,8 @@ website: https://github.com/NotJansel/palladium
 commands:
   palladium:
     usage: /palladium <command> [args]
+
+permissions:
+  palladium.download:
+  palladium.copy:
+  palladium.admin:
