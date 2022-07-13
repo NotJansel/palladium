@@ -1,6 +1,10 @@
 package de.notjansel.palladium.commands
 
+import de.notjansel.palladium.Palladium
 import de.notjansel.palladium.threading.DownloadThread
+import net.kyori.adventure.text.Component
+import net.kyori.adventure.text.minimessage.MiniMessage
+import net.md_5.bungee.api.chat.BaseComponent
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
@@ -10,7 +14,7 @@ class PalladiumCommand : TabExecutor, CommandExecutor{
 
     override fun onCommand(p0: CommandSender, p1: Command, p2: String, p3: Array<String>?): Boolean {
         if (p3?.isEmpty() == true) {
-            p0.sendRichMessage("<red>You bitch give some args first")
+            Palladium.adventure.sender(p0).sendMessage(MiniMessage.miniMessage().deserialize("<red>You bitch give some args first"))
             return true
         }
         when (p3?.first()) {

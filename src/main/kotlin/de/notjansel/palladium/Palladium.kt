@@ -2,6 +2,7 @@ package de.notjansel.palladium
 
 import de.notjansel.palladium.commands.PalladiumCommand
 import de.notjansel.palladium.enums.VersionTypes
+import net.kyori.adventure.platform.bukkit.BukkitAudiences
 import org.bstats.bukkit.Metrics
 import org.bukkit.Bukkit
 import org.bukkit.plugin.java.JavaPlugin
@@ -12,8 +13,16 @@ import java.net.URL
 import java.util.logging.Level
 import java.util.logging.Logger
 
+
 class Palladium : JavaPlugin() {
+
+    fun adventure(): BukkitAudiences {
+        checkNotNull(adventure) { "Tried to access Adventure when the plugin was disabled!" }
+        return adventure
+    }
+
     override fun onEnable() {
+        adventure = BukkitAudiences.create(this);
         val pluginid: Int = 15555
         val metrics: Metrics = Metrics(this, pluginid);
         if (!File(getDownloadDirectoryPath()).exists()) {
@@ -22,13 +31,13 @@ class Palladium : JavaPlugin() {
         instance = this
         val logger: Logger = this.logger;
         logger.log(Level.INFO, "Palladium enabled!");
-        Bukkit.getConsoleSender().sendRichMessage(getDownloadDirectoryPath())
+        Bukkit.getConsoleSender().sendMessage(getDownloadDirectoryPath())
         downloadFile("https://raw.githubusercontent.com/NotJansel/palladium/master/versions.json", "versions.json", getDownloadDirectoryPath())
         getCommand("palladium")!!.setExecutor(PalladiumCommand())
     }
 
     override fun onDisable() {
-        // Plugin shutdown logic
+        adventure.close();
     }
 
     private fun downloadFile(url: String, file: String, path: String) {
@@ -58,6 +67,7 @@ class Palladium : JavaPlugin() {
         val version: String = "0.10.0-SNAPSHOT"
         val versiontype: VersionTypes = VersionTypes.DEVELOPMENT
         lateinit var instance: Palladium
+        lateinit var adventure: BukkitAudiences
     }
 
 
