@@ -19,10 +19,11 @@ class Palladium : JavaPlugin() {
         if (!File(getDownloadDirectoryPath()).exists()) {
             File(getDownloadDirectoryPath()).mkdirs()
         }
+        instance = this
         val logger: Logger = this.logger;
         logger.log(Level.INFO, "Palladium enabled!");
         Bukkit.getConsoleSender().sendRichMessage(getDownloadDirectoryPath())
-        DownloadFile("https://raw.githubusercontent.com/NotJansel/palladium/master/versions.json", "versions.json", getDownloadDirectoryPath())
+        downloadFile("https://raw.githubusercontent.com/NotJansel/palladium/master/versions.json", "versions.json", getDownloadDirectoryPath())
         getCommand("palladium")!!.setExecutor(PalladiumCommand())
     }
 
@@ -30,7 +31,7 @@ class Palladium : JavaPlugin() {
         // Plugin shutdown logic
     }
 
-    fun DownloadFile(url: String, file: String, path: String) {
+    private fun downloadFile(url: String, file: String, path: String) {
         val f = File(file)
         if (f.exists()) {
             f.delete()
@@ -53,8 +54,11 @@ class Palladium : JavaPlugin() {
         return this.dataFolder.absolutePath + "/"
     }
 
-    object things{
+    companion object Things{
         val version: String = "0.10.0-SNAPSHOT"
         val versiontype: VersionTypes = VersionTypes.DEVELOPMENT
+        lateinit var instance: Palladium
     }
+
+
 }

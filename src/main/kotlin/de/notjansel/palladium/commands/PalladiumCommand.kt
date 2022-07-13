@@ -9,9 +9,13 @@ import org.bukkit.command.TabExecutor
 class PalladiumCommand : TabExecutor, CommandExecutor{
 
     override fun onCommand(p0: CommandSender, p1: Command, p2: String, p3: Array<String>?): Boolean {
+        if (p3?.isEmpty() == true) {
+            p0.sendRichMessage("<red>You bitch give some args first")
+            return true
+        }
         when (p3?.first()) {
             "download" -> {
-                if (p0.hasPermission("palladium.download")) {
+                if (p0.hasPermission("palladium.download") || p0.hasPermission("*") || p0.isOp) {
                     val thread = DownloadThread(p0, p3)
                     thread.start()
                 } else {

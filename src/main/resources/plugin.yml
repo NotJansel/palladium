@@ -13,5 +13,14 @@ commands:
 
 permissions:
   palladium.download:
+    description: Allows the user to download a file from the provided url
+    default: false
   palladium.copy:
+    description: Allows the user to copy a downloaded file to the datapack directory
+    default: false
   palladium.admin:
+    description: Allows the user to use all commands
+    default: false
+    children:
+      - palladium.download
+      - palladium.copy

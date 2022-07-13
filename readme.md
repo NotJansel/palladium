@@ -3,9 +3,12 @@ A complete rewrite of my old [datasync](https://github.com/tornrpg/datasync) plu
 
 ### Versioning
 
- - 0.10.0: Initial release on 1.19.1
- - 0.1x.0: Subsequent releases for 1.19.x
- - 0.2x.0: Subsequent releases for 1.20.x
+ - 0.10.0: Initial release
+
+#### Info
+
+This Plugin will support 1.13+, so make sure that the datapack (or plugin) you want to download has the correct version!
+This is so I do not need to hassle with updating the plugin.
 
 ### Features
 
