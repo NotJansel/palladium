@@ -33,8 +33,9 @@ class PalladiumCommand : TabExecutor, CommandExecutor{
                     audience.sendMessage(MiniMessage.miniMessage().deserialize("<green>${p3[1]}"))
                     if (p3[1].endsWith(".jar")) { fileTypes = FileTypes.PLUGIN }
                     if (p3[1].endsWith(".zip")) { fileTypes = FileTypes.DATAPACK }
-                    if (!p3[1].endsWith(".jar") || !p3[1].endsWith(".zip")) { audience.sendMessage(MiniMessage.miniMessage().deserialize(errorMessages().invalidFile)) }
+                    if (!p3[1].endsWith(".jar") && !p3[1].endsWith(".zip")) { audience.sendMessage(MiniMessage.miniMessage().deserialize(errorMessages().invalidFile)) }
                     val thread = CopyThread(p3[1], fileTypes)
+                    thread.start()
                 }
             }
         }
