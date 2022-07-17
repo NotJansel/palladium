@@ -1,15 +1,18 @@
 package de.notjansel.palladium.commands
 
 import de.notjansel.palladium.Palladium
+import de.notjansel.palladium.enums.DebugTypes
 import de.notjansel.palladium.enums.FileTypes
 import de.notjansel.palladium.errorMessages
 import de.notjansel.palladium.threading.CopyThread
+import de.notjansel.palladium.threading.DebugThread
 import de.notjansel.palladium.threading.DownloadThread
 import net.kyori.adventure.text.minimessage.MiniMessage
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
 import org.bukkit.command.TabExecutor
+import org.jetbrains.annotations.Debug
 
 class PalladiumCommand : TabExecutor, CommandExecutor{
 
@@ -33,7 +36,12 @@ class PalladiumCommand : TabExecutor, CommandExecutor{
                     audience.sendMessage(MiniMessage.miniMessage().deserialize("<green>${p3[1]}"))
                     if (p3[1].endsWith(".jar")) { fileTypes = FileTypes.PLUGIN }
                     if (p3[1].endsWith(".zip")) { fileTypes = FileTypes.DATAPACK }
-                    if (!p3[1].endsWith(".jar") && !p3[1].endsWith(".zip")) { audience.sendMessage(MiniMessage.miniMessage().deserialize(errorMessages().invalidFile)) }
+                    if (!p3[1].endsWith(".jar") && !p3[1].endsWith(".zip")) { audience.sendMessage(MiniMessage.miniMessage().deserialize(errorMessages().invalidFile)); return true }
+                    if (p3[2] == "debug") {
+                        val thread = DebugThread(DebugTypes.THREADINGTEST)
+                        thread.start()
+                        return true
+                    }
                     val thread = CopyThread(p3[1], fileTypes)
                     thread.start()
                 }
