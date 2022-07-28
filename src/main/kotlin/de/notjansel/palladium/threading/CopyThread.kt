@@ -12,5 +12,6 @@ class CopyThread(val filename: String, val fileTypes: FileTypes): Thread() {
         if (fileTypes == FileTypes.DATAPACK) {
             File(Palladium.instance.getDownloadDirectoryPath() + filename).copyTo(File(Palladium.instance.server.worldContainer.absolutePath + "/datapacks/$filename"), true)
         }
+        Palladium.instance.logger.info("File copied.")
     }
 }

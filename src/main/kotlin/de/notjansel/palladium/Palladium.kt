@@ -1,16 +1,20 @@
 package de.notjansel.palladium
 
+import com.google.gson.JsonObject
+import com.google.gson.JsonParser
 import de.notjansel.palladium.commands.PalladiumCommand
 import de.notjansel.palladium.enums.VersionTypes
 import net.kyori.adventure.platform.bukkit.BukkitAudiences
+import net.kyori.adventure.text.minimessage.MiniMessage
 import org.bstats.bukkit.Metrics
-import org.bukkit.Bukkit
 import org.bukkit.plugin.java.JavaPlugin
 import java.io.File
 import java.io.FileOutputStream
+import java.io.IOException
 import java.net.HttpURLConnection
 import java.net.URL
-import java.util.logging.Level
+import java.nio.file.Files
+import java.nio.file.Paths
 import java.util.logging.Logger
 
 
@@ -30,10 +34,18 @@ class Palladium : JavaPlugin() {
         }
         instance = this
         val logger: Logger = this.logger;
-        logger.log(Level.INFO, "Palladium enabled!");
-        Bukkit.getConsoleSender().sendMessage(getDownloadDirectoryPath())
         downloadFile("https://raw.githubusercontent.com/NotJansel/palladium/master/versions.json", "versions.json", getDownloadDirectoryPath())
         getCommand("palladium")!!.setExecutor(PalladiumCommand())
+        val obj: JsonObject = try {
+            JsonParser.parseString(Files.readString(Paths.get(getDownloadDirectoryPath() + "versions.json"))).asJsonObject
+        } catch (e: IOException) {
+            throw RuntimeException(e)
+        }
+        val fileversion = obj["latest"]
+        if (fileversion.asString != Things.version) {
+            adventure.console().sendMessage(MiniMessage.miniMessage().deserialize("<red>[Palladium] Local Version does not match with remote! Either you need to update or this is a <aqua>development</aqua> build!"));
+        }
+        adventure.console().sendMessage(MiniMessage.miniMessage().deserialize("<yellow>[Palladium] Plugin initialized successfully."));
     }
 
     override fun onDisable() {
@@ -64,8 +76,8 @@ class Palladium : JavaPlugin() {
     }
 
     companion object Things{
-        val version: String = "0.10.0-SNAPSHOT"
-        val versiontype: VersionTypes = VersionTypes.DEVELOPMENT
+        val version: String = "0.10.0"
+        val versiontype: VersionTypes = VersionTypes.RELEASE
         lateinit var instance: Palladium
         lateinit var adventure: BukkitAudiences
     }

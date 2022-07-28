@@ -6,7 +6,7 @@
 
     <groupId>de.notjansel</groupId>
     <artifactId>palladium</artifactId>
-    <version>0.10.0-SNAPSHOT</version>
+    <version>0.10.0</version>
     <packaging>jar</packaging>
 
     <name>Palladium</name>
@@ -161,6 +161,11 @@
             <artifactId>bstats-bukkit</artifactId>
             <version>3.0.0</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.9.0</version>
         </dependency>
     </dependencies>
 </project>

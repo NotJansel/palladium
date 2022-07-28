@@ -12,9 +12,8 @@ This is so I do not need to hassle with updating the plugin.
 
 ### Features
 
- - Download Datapacks from their link and install them into the datapacks directory
+ - Download Datapacks and Plugins from their link and install them into the respective directory
  - Support for VanillaTweaks planned, but has to be looked into
- - Maybe support for Downloading Plugins (not sure)
 
 ### Contributing
 

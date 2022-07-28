@@ -18,9 +18,13 @@ permissions:
   palladium.copy:
     description: Allows the user to copy a downloaded file to the datapack directory
     default: false
+  palladium.info:
+    description: Allows the user to retrieve the Plugins info
+    default: false
   palladium.admin:
     description: Allows the user to use all commands
     default: false
     children:
       - palladium.download
       - palladium.copy
+      - palladium.version

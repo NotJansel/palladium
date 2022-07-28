@@ -30,6 +30,6 @@ class DownloadThread(val sender: CommandSender, val args: Array<String>) : Threa
         }
         outputStream.close()
         input.close()
-        sender.sendMessage("Downloaded $filename ($length bytes)")
+        sender.sendMessage("Downloaded $filename (${length / 1024} kB)")
     }
 }
