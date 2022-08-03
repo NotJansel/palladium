@@ -6,14 +6,14 @@
 
     <groupId>de.notjansel</groupId>
     <artifactId>palladium</artifactId>
-    <version>0.10.0</version>
+    <version>0.10.1-dev</version>
     <packaging>jar</packaging>
 
     <name>Palladium</name>
 
     <description>Rewrite of my old datasync Plugin</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <kotlin.version>1.7.0</kotlin.version>
     </properties>

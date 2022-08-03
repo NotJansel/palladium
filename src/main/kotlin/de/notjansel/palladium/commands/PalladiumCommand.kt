@@ -1,8 +1,11 @@
 package de.notjansel.palladium.commands
 
+import com.google.gson.JsonObject
+import com.google.gson.JsonParser
 import de.notjansel.palladium.Palladium
 import de.notjansel.palladium.enums.DebugTypes
 import de.notjansel.palladium.enums.FileTypes
+import de.notjansel.palladium.enums.VersionTypes
 import de.notjansel.palladium.errorMessages
 import de.notjansel.palladium.threading.CopyThread
 import de.notjansel.palladium.threading.DebugThread
@@ -13,6 +16,9 @@ import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
 import org.bukkit.command.TabExecutor
 import org.jetbrains.annotations.Debug
+import java.io.IOException
+import java.nio.file.Files
+import java.nio.file.Paths
 
 class PalladiumCommand : TabExecutor, CommandExecutor{
 
@@ -50,7 +56,7 @@ class PalladiumCommand : TabExecutor, CommandExecutor{
             "info" -> {
                 if (p0.hasPermission("palladium.info") || p0.hasPermission("*") || p0.isOp) {
                     audience.sendMessage(MiniMessage.miniMessage().deserialize("<yellow> -----[ Palladium ]-----"))
-                    audience.sendMessage(MiniMessage.miniMessage().deserialize("<yellow>Version: <#32cd32>${Palladium.Things.version}"))
+                    audience.sendMessage(MiniMessage.miniMessage().deserialize("<yellow>Version: <#32cd32>${Palladium.Things.version} ${isUpdateOrDev()}"))
                     audience.sendMessage(MiniMessage.miniMessage().deserialize("<yellow>GitHub: <blue><click:open_url:https://github.com/NotJansel/Palladium><hover:show_text:'<blue>Click to open the Repository in your browser'>Click here</hover></click>"))
                     audience.sendMessage(MiniMessage.miniMessage().deserialize("<yellow>Author: <#32cd32>NotJansel"))
                     audience.sendMessage(MiniMessage.miniMessage().deserialize("<yellow>Contributors: <#32cd32>None yet! Help the Project to be better by committing some code!"))
@@ -76,6 +82,19 @@ class PalladiumCommand : TabExecutor, CommandExecutor{
             list.add("copy")
         }
         return list
+    }
+
+    fun isUpdateOrDev(): String {
+        val obj: JsonObject = try {
+            JsonParser.parseString(Files.readString(Paths.get(Palladium.Things.instance.getDownloadDirectoryPath() + "versions.json"))).asJsonObject
+        } catch (e: IOException) {
+            throw RuntimeException(e)
+        }
+        val fileversion = obj["latest"]
+        if (fileversion.asString != Palladium.version || Palladium.Things.versiontype == VersionTypes.DEVELOPMENT) {
+            return "<hover:show_text:'${errorMessages().updateAvailableOrDevVersion}'><red>(Info)</red></hover>"
+        }
+        return ""
     }
 
     companion object {

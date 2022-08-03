@@ -4,6 +4,7 @@ A complete rewrite of my old [datasync](https://github.com/tornrpg/datasync) plu
 ### Versioning
 
  - 0.10.0: Initial release
+ - 0.10.1: No changes made yet.
 
 #### Info
 

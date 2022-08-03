@@ -42,7 +42,7 @@ class Palladium : JavaPlugin() {
             throw RuntimeException(e)
         }
         val fileversion = obj["latest"]
-        if (fileversion.asString != Things.version) {
+        if (fileversion.asString != Things.version || Palladium.Things.versiontype == VersionTypes.DEVELOPMENT) {
             adventure.console().sendMessage(MiniMessage.miniMessage().deserialize("<red>[Palladium] Local Version does not match with remote! Either you need to update or this is a <aqua>development</aqua> build!"));
         }
         adventure.console().sendMessage(MiniMessage.miniMessage().deserialize("<yellow>[Palladium] Plugin initialized successfully."));
@@ -76,10 +76,11 @@ class Palladium : JavaPlugin() {
     }
 
     companion object Things{
-        val version: String = "0.10.0"
-        val versiontype: VersionTypes = VersionTypes.RELEASE
+        val version: String = "0.10.1-dev"
+        val versiontype: VersionTypes = VersionTypes.DEVELOPMENT
         lateinit var instance: Palladium
         lateinit var adventure: BukkitAudiences
+
     }
 
 
