@@ -1,5 +1,5 @@
 # Palladium
-A complete rewrite of my old [datasync](https://github.com/tornrpg/datasync) plugin. Development begins when the last update for the datasync plugin is pushed.
+A complete rewrite of my old [datasync](https://github.com/tornrpg/datasync) plugin.
 
 ### Versioning
 
@@ -14,6 +14,8 @@ This is so I do not need to hassle with updating the plugin.
 This is Paper and their Forks only! I will never give support for Spigot/Bukkit as they are a major minority in Servers, especially 1.17 and upwards.
 I also never had and will charge anything for my work and donating is free to your decision, if I ever give an option.
 I do this in my free time so sometimes there may be inactive phases.
+
+As soon it supports it, this Plugin will also be published to Modrinth. Maybe even only published there and updates will be checked from their api.
 
 ### Features
 
