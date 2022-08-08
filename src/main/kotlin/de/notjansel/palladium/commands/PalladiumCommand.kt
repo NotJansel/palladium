@@ -55,12 +55,12 @@ class PalladiumCommand : TabExecutor, CommandExecutor{
             }
             "info" -> {
                 if (p0.hasPermission("palladium.info") || p0.hasPermission("*") || p0.isOp) {
-                    audience.sendMessage(MiniMessage.miniMessage().deserialize("<yellow> -----[ Palladium ]-----"))
+                    audience.sendMessage(MiniMessage.miniMessage().deserialize("<yellow> ----------[ Palladium ]----------"))
                     audience.sendMessage(MiniMessage.miniMessage().deserialize("<yellow>Version: <#32cd32>${Palladium.Things.version} ${isUpdateOrDev()}"))
                     audience.sendMessage(MiniMessage.miniMessage().deserialize("<yellow>GitHub: <blue><click:open_url:https://github.com/NotJansel/Palladium><hover:show_text:'<blue>Click to open the Repository in your browser'>Click here</hover></click>"))
                     audience.sendMessage(MiniMessage.miniMessage().deserialize("<yellow>Author: <#32cd32>NotJansel"))
                     audience.sendMessage(MiniMessage.miniMessage().deserialize("<yellow>Contributors: <#32cd32>None yet! Help the Project to be better by committing some code!"))
-                    audience.sendMessage(MiniMessage.miniMessage().deserialize("<yellow> -----[ Palladium ]-----"))
+                    audience.sendMessage(MiniMessage.miniMessage().deserialize("<yellow> ----------[ Palladium ]----------"))
                 } else {
                     audience.sendMessage(MiniMessage.miniMessage().deserialize(errorMessages().missingPermission))
                 }

@@ -6,10 +6,14 @@ A complete rewrite of my old [datasync](https://github.com/tornrpg/datasync) plu
  - 0.10.0: Initial release
  - 0.10.1: No changes made yet.
 
-#### Info
+### Info
 
 This Plugin will support 1.13+, so make sure that the datapack (or plugin) you want to download has the correct version!
 This is so I do not need to hassle with updating the plugin.
+
+This is Paper and their Forks only! I will never give support for Spigot/Bukkit as they are a major minority in Servers, especially 1.17 and upwards.
+I also never had and will charge anything for my work and donating is free to your decision, if I ever give an option.
+I do this in my free time so sometimes there may be inactive phases.
 
 ### Features
 
