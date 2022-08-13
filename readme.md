@@ -4,7 +4,8 @@ A complete rewrite of my old [datasync](https://github.com/tornrpg/datasync) plu
 ### Versioning
 
  - 0.10.0: Initial release
- - 0.10.1: No changes made yet.
+ - 0.10.1: Hotfix for 1.19.1/1.19.2 that some hover and click events are not working.
+ - 0.10.2: No changes made yet.
 
 ### Info
 
