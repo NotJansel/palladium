@@ -15,7 +15,6 @@ import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
 import org.bukkit.command.TabExecutor
-import org.jetbrains.annotations.Debug
 import java.io.IOException
 import java.nio.file.Files
 import java.nio.file.Paths
@@ -55,12 +54,32 @@ class PalladiumCommand : TabExecutor, CommandExecutor{
             }
             "info" -> {
                 if (p0.hasPermission("palladium.info") || p0.hasPermission("*") || p0.isOp) {
-                    audience.sendMessage(MiniMessage.miniMessage().deserialize("<yellow> ----------[ Palladium ]----------"))
-                    audience.sendMessage(MiniMessage.miniMessage().deserialize("<yellow>Version: <#32cd32>${Palladium.Things.version} ${isUpdateOrDev()}"))
-                    audience.sendMessage(MiniMessage.miniMessage().deserialize("<yellow>GitHub: <blue><click:open_url:https://github.com/NotJansel/Palladium><hover:show_text:'<blue>Click to open the Repository in your browser'>Click here</hover></click>"))
-                    audience.sendMessage(MiniMessage.miniMessage().deserialize("<yellow>Author: <#32cd32>NotJansel"))
-                    audience.sendMessage(MiniMessage.miniMessage().deserialize("<yellow>Contributors: <#32cd32>None yet! Help the Project to be better by committing some code!"))
-                    audience.sendMessage(MiniMessage.miniMessage().deserialize("<yellow> ----------[ Palladium ]----------"))
+
+                        audience.sendMessage(
+                            MiniMessage.miniMessage().deserialize("<yellow> ----------[ Palladium ]----------")
+                        )
+                        audience.sendMessage(
+                            MiniMessage.miniMessage()
+                                .deserialize("<yellow>Version: <#32cd32>${Palladium.Things.version} ${isUpdateOrDev()}")
+                        )
+                        audience.sendMessage(
+                            MiniMessage.miniMessage()
+                                .deserialize("<yellow>GitHub: <blue><click:open_url:https://github.com/NotJansel/Palladium><hover:show_text:'<blue>Click to open the Repository in your browser'>Click here</hover></click>")
+                        )
+                        audience.sendMessage(
+                            MiniMessage.miniMessage().deserialize("<yellow>Author: <#32cd32>NotJansel")
+                        )
+                        audience.sendMessage(
+                            MiniMessage.miniMessage()
+                                .deserialize("<yellow>Contributors: <#32cd32>None yet! Help the Project to be better by committing some code!")
+                        )
+                        audience.sendMessage(
+                            MiniMessage.miniMessage()
+                                .deserialize("<yellow>Sponsor links: <#FF4800><click:open_url:https://ko-fi.com/jansel>Ko-Fi</click>")
+                        )
+                        audience.sendMessage(
+                            MiniMessage.miniMessage().deserialize("<yellow> ----------[ Palladium ]----------")
+                        )
                 } else {
                     audience.sendMessage(MiniMessage.miniMessage().deserialize(errorMessages().missingPermission))
                 }
