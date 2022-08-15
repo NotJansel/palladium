@@ -16,7 +16,8 @@ This is Paper and their Forks only! I will never give support for Spigot/Bukkit 
 I also never had and will charge anything for my work and donating is free to your decision, if I ever give an option.
 I do this in my free time so sometimes there may be inactive phases.
 
-As soon it supports it, this Plugin will also be published to Modrinth. Maybe even only published there and updates will be checked from their api.
+Releases will now be published on here:
+[Modrinth](https://modrinth.com/mod/palladium)
 
 ### Features
 
