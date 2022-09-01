@@ -12,8 +12,6 @@ class DebugThread(val debugType: DebugTypes): Thread() {
             Palladium.instance.server.logger.info(Palladium.instance.server.bukkitVersion)
             Palladium.instance.server.logger.info(Palladium.instance.server.motd)
             Palladium.instance.server.logger.info(Palladium.instance.server.name)
-            Palladium.instance.server.logger.info(Palladium.instance.server.serverName)
-            Palladium.instance.server.logger.info(Palladium.instance.server.serverId)
             Palladium.instance.server.logger.info("Debug Thread was executed successfully")
         }
     }
