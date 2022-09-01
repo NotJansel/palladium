@@ -35,7 +35,7 @@ class Palladium : JavaPlugin() {
         instance = this
         val logger: Logger = this.logger;
         downloadFile("https://raw.githubusercontent.com/NotJansel/palladium/master/versions.json", "versions.json", getDownloadDirectoryPath())
-        getCommand("palladium")!!.setExecutor(PalladiumCommand())
+        getCommand("palladium")!!.executor = PalladiumCommand()
         val obj: JsonObject = try {
             JsonParser.parseString(Files.readString(Paths.get(getDownloadDirectoryPath() + "versions.json"))).asJsonObject
         } catch (e: IOException) {
@@ -77,8 +77,8 @@ class Palladium : JavaPlugin() {
     }
 
     companion object Things {
-        val version: String = "0.10.1"
-        val versiontype: VersionTypes = VersionTypes.RELEASE
+        val version: String = "0.10.2"
+        val versiontype: VersionTypes = VersionTypes.DEVELOPMENT
         lateinit var instance: Palladium
         lateinit var adventure: BukkitAudiences
 
