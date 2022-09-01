@@ -4,8 +4,8 @@ on:
   push:
     branches: [ master ]
     paths:
-      - "src"
-      - ".github"
+      - "palladium/src"
+      - "palladium/.github"
 
 jobs:
   build:
