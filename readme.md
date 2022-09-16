@@ -1,6 +1,13 @@
 # Palladium
 A complete rewrite of my old [datasync](https://github.com/tornrpg/datasync) plugin.
 
+<p align="left"><a href="https://modrinth.com/plugin/palladium">
+    <img 
+    src="https://raw.githubusercontent.com/modrinth/art/main/Branding/Badge/badge-dark__184x72.png"
+    width=150px
+    />
+</a></p>
+
 ### Versioning
 
  - 0.10.0: Initial release
@@ -15,9 +22,6 @@ This is so I do not need to hassle with updating the plugin.
 This is Paper and their Forks only! I will never give support for Spigot/Bukkit as they are a major minority in Servers, especially 1.17 and upwards.
 I also never had and will charge anything for my work and donating is free to your decision, if I ever give an option.
 I do this in my free time so sometimes there may be inactive phases.
-
-Releases will now be published on here:
-[Modrinth](https://modrinth.com/mod/palladium)
 
 ### Features
 
