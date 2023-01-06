@@ -16,6 +16,9 @@ A complete rewrite of my old [datasync](https://github.com/tornrpg/datasync) plu
 
 ### Info
 
+**Development has stopped due to lack of motivation to work on this.**
+Any further Update requests will be denied.
+
 This Plugin will support 1.13+, so make sure that the datapack (or plugin) you want to download has the correct version!
 This is so I do not need to hassle with updating the plugin.
 
