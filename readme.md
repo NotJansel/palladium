@@ -12,12 +12,9 @@ A complete rewrite of my old [datasync](https://github.com/tornrpg/datasync) plu
 
  - 0.10.0: Initial release
  - 0.10.1: Hotfix for 1.19.1/1.19.2 that some hover and click events are not working.
- - 0.10.2: CHange Updatechecker to use the Github API (not commited and pushed yet, too lazy)
+ - 0.10.2: CHange Updatechecker to use the Github API (Cancelled.)
 
 ### Info
-
-**Development has stopped due to lack of motivation to work on this.**
-Any further Update requests will be denied.
 
 This Plugin will support 1.13+, so make sure that the datapack (or plugin) you want to download has the correct version!
 This is so I do not need to hassle with updating the plugin.
@@ -41,3 +38,7 @@ I am not responsible for any damage caused by using this plugin.
 Every command is locked behind a permission, so it should be safe that no unauthorized people can use the command. 
 You decided to use it, so you're responsible. 
 For any issues, please open an issue in the Issues section.
+
+---
+
+Return of the King. 28.06.2023
