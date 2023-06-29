@@ -2,6 +2,7 @@ package de.notjansel.palladium.threading
 
 import de.notjansel.palladium.Palladium
 import de.notjansel.palladium.commands.PalladiumCommand
+import io.ktor.client.*
 import org.bukkit.command.CommandSender
 import java.io.File
 import java.io.FileOutputStream
