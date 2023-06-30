@@ -40,13 +40,13 @@ class PalladiumCommand : TabExecutor, CommandExecutor{
                 if (p0.hasPermission("palladium.copy") || p0.hasPermission("*") || p0.isOp) {
                     if (p3[1].endsWith(".jar")) { fileTypes = FileTypes.PLUGIN }
                     if (p3[1].endsWith(".zip")) { fileTypes = FileTypes.DATAPACK }
-                    if (!p3[1].endsWith(".jar") && !p3[1].endsWith(".zip")) { audience.sendMessage(MiniMessage.miniMessage().deserialize(errorMessages().invalidFile)); return true }
-                    if (p3[2] == "debug") {
+                    if (!p3[1].endsWith(".jar") && !p3[1].endsWith(".zip") && p3[1] == "debug") { audience.sendMessage(MiniMessage.miniMessage().deserialize(errorMessages().invalidFile)); return true }
+                    if (p3.last() == "debug") {
                         val thread = DebugThread(DebugTypes.THREADINGTEST)
                         thread.start()
                         return true
                     }
-                    val thread = CopyThread(p3[1], fileTypes)
+                    val thread = CopyThread(p3[1], fileTypes, audience)
                     thread.start()
                 } else {
                     audience.sendMessage(MiniMessage.miniMessage().deserialize(errorMessages().missingPermission))
@@ -110,7 +110,7 @@ class PalladiumCommand : TabExecutor, CommandExecutor{
             throw RuntimeException(e)
         }
         val fileversion = obj["latest"]
-        if (fileversion.asString != Palladium.version || Palladium.Things.versiontype == VersionTypes.DEVELOPMENT) {
+        if (fileversion.asString != Palladium.version || Palladium.Things.versionType == VersionTypes.DEVELOPMENT) {
             return "<hover:show_text:'${errorMessages().updateAvailableOrDevVersion}'><red>(Info)</red></hover>"
         }
         return ""

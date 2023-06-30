@@ -1,5 +1,5 @@
 name: Palladium
-version: '${project.version}'
+version: '@version@'
 main: de.notjansel.palladium.Palladium
 api-version: 1.13
 prefix: palladium

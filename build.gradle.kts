@@ -6,10 +6,12 @@ plugins {
     application
 
     id("com.github.johnrengelman.shadow")
+    id("net.kyori.blossom") version "1.3.1"
 }
 
 group = "de.notjansel"
-version = "1.0-SNAPSHOT"
+version = "0.11.0-dev"
+val ktorVersion = "2.3.2"
 
 repositories {
     mavenCentral()
@@ -23,16 +25,16 @@ dependencies {
     implementation("net.kyori:adventure-api:4.14.0")
     implementation("net.kyori:adventure-text-minimessage:4.14.0")
     implementation("net.kyori:adventure-platform-bukkit:4.3.0")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.21")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.8.22")
     implementation("org.bstats:bstats-bukkit:3.0.2")
     implementation("com.google.code.gson:gson:2.10.1")
-    implementation("io.ktor:ktor-client-core:2.3.1")
-    implementation("io.ktor:ktor-client-cio:2.3.1")
-    implementation("io.ktor:ktor-client-content-negotiation:2.3.1")
-    implementation("io.ktor:ktor-client-serialization:2.3.1")
-    implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.1")
+    implementation("io.ktor:ktor-client-core:$ktorVersion")
+    implementation("io.ktor:ktor-client-cio:$ktorVersion")
+    implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
+    implementation("io.ktor:ktor-client-serialization:$ktorVersion")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:1.5.1")
-    testImplementation("org.jetbrains.kotlin:kotlin-test:1.8.21")
+    testImplementation("org.jetbrains.kotlin:kotlin-test:1.8.22")
     compileOnly("com.destroystokyo.paper:paper-api:1.13-R0.1-SNAPSHOT")
 }
 
@@ -51,6 +53,16 @@ tasks {
             )
         }
     }
+    shadowJar {
+        relocate("org.bstats", "de.notjansel")
+    }
+    processResources {
+        inputs.property("version", version)
+    }
+}
+
+blossom {
+    replaceToken("@version@", version)
 }
 
 application {
