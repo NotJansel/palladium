@@ -34,6 +34,7 @@ dependencies {
     implementation("io.ktor:ktor-client-serialization:$ktorVersion")
     implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:1.5.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.2")
     testImplementation("org.jetbrains.kotlin:kotlin-test:1.8.22")
     compileOnly("com.destroystokyo.paper:paper-api:1.13-R0.1-SNAPSHOT")
 }
