@@ -44,7 +44,7 @@ tasks {
         kotlinOptions.jvmTarget = "17"
     }
     wrapper {
-        gradleVersion = "8.1.1"
+        gradleVersion = "8.2"
         distributionType = Wrapper.DistributionType.BIN
     }
     jar {

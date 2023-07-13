@@ -15,20 +15,18 @@ import kotlinx.serialization.json.jsonObject
 import net.kyori.adventure.platform.bukkit.BukkitAudiences
 import net.kyori.adventure.text.minimessage.MiniMessage
 import org.bstats.bukkit.Metrics
+import org.bstats.charts.CustomChart
+import org.bstats.charts.SimplePie
 import org.bukkit.plugin.java.JavaPlugin
 import java.io.File
 
 
 class Palladium : JavaPlugin() {
 
-    fun adventure(): BukkitAudiences {
-        checkNotNull(adventure) { "Tried to access Adventure when the plugin was disabled!" }
-        return adventure
-    }
-
     override fun onEnable() {
         adventure = BukkitAudiences.create(this);
         val metrics: Metrics = Metrics(this, 15555);
+        metrics.addCustomChart(SimplePie("palladiumVersion") { version })
         if (!File(getDownloadDirectoryPath()).exists()) {
             File(getDownloadDirectoryPath()).mkdirs()
         }
@@ -62,10 +60,8 @@ class Palladium : JavaPlugin() {
                 json(Json { ignoreUnknownKeys = true })
             }
             install(UserAgent) {
-                agent = "notjansel/palladium (github@notjansel.de)"
+                agent = "https://github.com/notjansel/palladium (github@notjansel.de)"
             }
         }
     }
-
-
 }

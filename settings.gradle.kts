@@ -3,7 +3,7 @@ rootProject.name = "palladium"
 
 pluginManagement {
     plugins {
-        val kotlinVersion = "1.8.22"
+        val kotlinVersion = "1.9.0"
         kotlin("jvm") version kotlinVersion
         kotlin("plugin.serialization") version kotlinVersion
 
